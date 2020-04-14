@@ -1,0 +1,5 @@
+package farmes;
+
+public abstract class Figure {
+
+}

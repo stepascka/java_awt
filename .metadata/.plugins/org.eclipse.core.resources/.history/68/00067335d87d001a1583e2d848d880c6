@@ -1,0 +1,58 @@
+package farmes;
+
+import java.awt.*;
+
+public class Scene {
+
+	Frame childFrame ; // Дочерняя форма
+	Canvas cnv;
+	Label numberLab, objectLab, speedLab, objectLabForChange, speedLabForChange;
+	TextField numberTB, speedTB; 
+	Button addBut, changeBut;  
+	Choice objectChForAdd, objectChForChange, speedCh;
+	
+	void func() {
+		
+		numberLab = new Label("Номер: ");
+		objectLab = new Label("Объект: ");
+		speedLab = new Label("Скорость: ");
+		objectLabForChange = new Label("Объект: ");
+		speedLabForChange = new Label("Скорость: ");
+		
+		numberTB = new TextField();
+		numberTB.setText("1");
+		speedTB = new TextField();
+		speedTB.setText("3");
+		
+		addBut = new Button("Добавить");
+		changeBut = new Button("Изменить");
+		
+		objectChForAdd = new Choice();  
+		objectChForAdd.addItem("Круг");  
+		objectChForAdd.addItem("Квадрат");  
+		//objectChForAdd.addItemListener(this); 
+		
+		objectChForChange = new Choice();  
+		
+		speedCh = new Choice(); 
+		speedCh.addItem("1");  
+		speedCh.addItem("2");   
+		speedCh.addItem("3"); 
+		speedCh.addItem("4");  
+		speedCh.addItem("5");  
+	}
+	
+	Scene(Canvas cnv, Label numberLab, Label objectLab, Label speedLab, TextField numberTB, TextField speedTB, 
+			Button addBut, Choice objectChForAdd, Label objectLabForChange, Label speedLabForChange) {
+		this.cnv = cnv;
+		this.numberLab = numberLab;
+		this.objectLab = objectLab;
+		this.speedLab = speedLab;
+		this.numberTB = numberTB;
+		this.speedTB = speedTB;
+		this.addBut = addBut;
+		this.objectChForAdd = objectChForAdd;
+		this.objectLabForChange = objectLabForChange;
+		this.speedLabForChange = speedLabForChange;
+	}
+}

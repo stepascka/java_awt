@@ -1,0 +1,22 @@
+package farmes;
+import java.awt.*;
+
+public abstract class Figure {
+	
+	Point point = new Point(50, 50);
+	Canvas cnv;
+	Graphics g;
+	Color color;
+	int height = 40;
+	int speed;
+	double angle;
+
+	void moveTo() {
+		this.show(false);
+		this.point.x += this.speed*Math.cos(this.angle)*2;
+		this.point.y += this.speed*Math.sin(this.angle)*2;
+		checkBorder();
+		this.show(true);
+		
+	}
+}

@@ -1,0 +1,55 @@
+package farmes;
+import java.awt.*; 
+import java.math.*;
+
+public class Circle extends Thread{
+
+	Point point = new Point(30, 30);
+	Canvas cnv;
+	Graphics g;
+	Color color;
+	int radius = 40;
+	int speed;
+	double angle;
+	
+	void show(boolean sh) {
+		if (sh) {
+			g.setColor(color);  
+			g.fillOval(point.x, point.y, radius, radius);
+		}
+		else {
+			g.setColor(Color.pink);  
+			g.fillOval(point.x, point.y, radius, radius);
+		}
+	}
+	
+	void moveTo() {
+		this.show(false);
+		this.point.x += this.speed*Math.cos(this.angle);
+		this.point.y += this.speed*Math.sin(this.angle);
+		checkBorder();
+		this.show(true);
+		
+	}
+	
+	void checkBorder() {
+		//!
+	}
+	
+	public void run() {
+		while(true) {
+			moveTo();
+			sleep(100);
+			//cnv.repaint();
+		}
+	}
+	
+	Circle(Canvas cnv, Color color, int speed) {
+		this.cnv = cnv;
+		//this.g = g;
+		this.color = color;
+		this.speed = speed;
+		this.angle = Math.random()*2*Math.PI;
+		this.g = cnv.getGraphics();
+	}
+}

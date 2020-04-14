@@ -1,0 +1,6 @@
+package farmes;
+import java.awt.*; 
+
+public class Quadrangle extends Thread{
+
+}

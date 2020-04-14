@@ -1,0 +1,40 @@
+package farmes;
+import java.awt.*;
+
+public abstract class Figure extends Thread{
+	
+	Point point = new Point(50, 50);
+	Canvas cnv;
+	Graphics g;
+	Color color;
+	int speed;
+	double angle;
+	int id;
+
+	void moveTo() {
+		this.show(false);
+		this.point.x += this.speed*Math.cos(this.angle)*2;
+		this.point.y += this.speed*Math.sin(this.angle)*2;
+		checkBorder();
+		this.show(true);		
+	}
+	
+	void show(boolean sh) {
+		//
+	}
+	
+	void checkBorder() {
+		//
+	}
+	
+	public void run() {
+		while(true) {
+			moveTo();
+			try {
+				sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

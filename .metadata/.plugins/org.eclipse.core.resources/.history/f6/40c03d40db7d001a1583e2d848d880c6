@@ -1,0 +1,107 @@
+package farmes;
+
+import java.awt.*;
+
+public class Scene extends Frame{
+	
+	void func() {
+		
+		numberLab = new Label("Номер: ");
+		objectLab = new Label("Объект: ");
+		speedLab = new Label("Скорость: ");
+		objectLabForChange = new Label("Объект: ");
+		speedLabForChange = new Label("Скорость: ");
+		
+		numberTB = new TextField();
+		numberTB.setText("1");
+		speedTB = new TextField();
+		speedTB.setText("3");
+		
+		addBut = new Button("Добавить");
+		changeBut = new Button("Изменить");
+		
+		objectChForAdd = new Choice();  
+		objectChForAdd.addItem("Круг");  
+		objectChForAdd.addItem("Квадрат");  
+		//objectChForAdd.addItemListener(this); 
+		
+		objectChForChange = new Choice();  
+		
+		speedCh = new Choice(); 
+		speedCh.addItem("1");  
+		speedCh.addItem("2");   
+		speedCh.addItem("3"); 
+		speedCh.addItem("4");  
+		speedCh.addItem("5");  
+		
+		//**
+		
+		GridBagConstraints gbc = new GridBagConstraints();
+		this.setLayout (new GridBagLayout());  
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0; gbc.gridy = 0;
+		this.add (numberLab, gbc);
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 1; gbc.gridy = 0;
+        this.add (numberTB, gbc);
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0; gbc.gridy = 1;
+        this.add (objectLab, gbc);
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 1; gbc.gridy = 1;
+        this.add (objectChForAdd, gbc);
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0; gbc.gridy = 2;
+        this.add (speedLab, gbc);
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 1; gbc.gridy = 2;
+        this.add (speedTB, gbc);
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0;  gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        this.add (addBut, gbc);
+				
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridy = 4;
+        gbc.gridwidth = 1;
+        this.add (new Label(""), gbc);
+
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0; gbc.gridy = 5;
+        this.add (objectLabForChange, gbc);
+		
+		for (int i = 0; i < numberOfObjects; i++) {
+			if (numbers[i] != -1) 
+				objectChForChange.addItem(numbers[i] + ""); 
+		}
+				
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 1; gbc.gridy = 5;
+        this.add (objectChForChange, gbc);
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0; gbc.gridy = 6;
+        this.add (speedLabForChange, gbc);
+				
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 1; gbc.gridy = 6;
+        this.add (speedCh, gbc);
+		
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0; gbc.gridy = 7;
+        gbc.gridwidth = 2;
+        this.add (changeBut, gbc);
+	}
+	
+	Scene() {		
+		
+		func();
+	}
+}

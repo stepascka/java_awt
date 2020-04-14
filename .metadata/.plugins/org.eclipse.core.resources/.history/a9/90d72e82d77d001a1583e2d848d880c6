@@ -1,0 +1,20 @@
+package farmes;
+
+import java.awt.*;
+
+public class Scene {
+
+	Frame childFrame ; // Дочерняя форма
+	Canvas cnv;
+	Label numberLab, objectLab, speedLab, objectLabForChange, speedLabForChange;
+	TextField numberTB, speedTB; 
+	Button addBut, changeBut;  
+	Choice objectChForAdd, objectChForChange, speedCh;
+	Point point; // Начальные координаты строки 
+	Color [] colors; 
+	int n; 	// Индекс массива цветов 
+	
+	void func() {
+		
+	}
+}

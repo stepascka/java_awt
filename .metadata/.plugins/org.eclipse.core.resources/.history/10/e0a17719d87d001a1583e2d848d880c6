@@ -1,0 +1,29 @@
+package farmes;
+
+import java.awt.*;
+
+public class Scene {
+
+	Frame childFrame ; // Дочерняя форма
+	Canvas cnv;
+	Label numberLab, objectLab, speedLab, objectLabForChange, speedLabForChange;
+	TextField numberTB, speedTB; 
+	Button addBut, changeBut;  
+	Choice objectChForAdd, objectChForChange, speedCh;
+	
+	void func() {
+		
+	}
+	
+	Scene(Canvas cnv, Label numberLab, Label objectLab, Label speedLab, TextField numberTB, TextField speedTB, 
+			Button addBut, Choice objectChForAdd) {
+		this.cnv = cnv;
+		this.numberLab = numberLab;
+		this.objectLab = objectLab;
+		this.speedLab = speedLab;
+		this.numberTB = numberTB;
+		this.speedTB = speedTB;
+		this.addBut = addBut;
+		this.objectChForAdd = objectChForAdd;
+	}
+}

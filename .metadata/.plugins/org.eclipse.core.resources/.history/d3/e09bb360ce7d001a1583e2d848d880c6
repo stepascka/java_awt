@@ -1,0 +1,80 @@
+package farmes;
+import java.awt.*; 
+import java.math.*;
+
+public class Circle extends Thread{
+
+	Point point = new Point(30, 30);
+	Canvas cnv;
+	Graphics g;
+	Color color;
+	int radius = 40;
+	int speed;
+	double angle;
+	
+	void show(boolean sh) {
+		if (sh) {
+			g.setColor(color);  
+			g.fillOval(point.x, point.y, radius, radius);
+		}
+		else {
+			g.setColor(Color.pink);  
+			g.fillOval(point.x, point.y, radius, radius);
+		}
+	}
+	
+	void moveTo() {
+		this.show(false);
+		this.point.x += this.speed*Math.cos(this.angle)*2;
+		this.point.y += this.speed*Math.sin(this.angle)*2;
+		checkBorder();
+		this.show(true);
+		
+	}
+	
+	void checkBorder() {
+		boolean border = false;
+		
+		if ((cnv.getWidth()-point.x <= this.radius) && (Math.cos(this.angle) > 0)) {
+			this.angle = Math.PI - this.angle;
+			border = true;
+		}
+		else if ((point.x <= this.radius) && (Math.cos(this.angle) < 0)) {
+			this.angle = Math.PI - this.angle;
+			border = true;
+		}
+		
+		if ((cnv.getHeight()-point.y <= this.radius) && (Math.sin(this.angle) > 0)) {
+			this.angle *= (-1);
+			border = true;
+		}
+		else if ((point.y <= this.radius) && (Math.sin(this.angle) < 0)) {
+			this.angle *= (-1);
+			border = true;
+		}
+		
+		if (border) {			
+			this.point.x += this.speed*Math.cos(this.angle);
+			this.point.y += this.speed*Math.sin(this.angle);
+		}		
+	}
+	
+	public void run() {
+		while(true) {
+			moveTo();
+			try {
+				sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	Circle(Canvas cnv, Color color, int speed) {
+		this.cnv = cnv;
+		this.color = color;
+		this.speed = speed;
+		this.angle = Math.random()*2*Math.PI;
+		this.g = cnv.getGraphics();
+	}
+}
